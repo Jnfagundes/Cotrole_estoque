@@ -1,0 +1,25 @@
+body{
+    padding: 10px;
+    background-color: rgb(32, 51, 32);
+}
+header{
+    display: flex;
+}
+section{
+    display: flex;
+    width: 80%;
+    height: 600px;
+    border: solid 3px wheat;
+    padding: auto;
+    margin: auto;
+    margin-top: 25px;
+}
+
+#dados{
+    margin: auto ;
+    
+}
+
+form{
+    margin: 35px;
+}
