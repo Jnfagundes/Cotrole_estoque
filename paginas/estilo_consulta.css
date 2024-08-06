@@ -1,0 +1,18 @@
+body{
+    padding: 10px;
+    background-color: rgb(32, 51, 32);
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+}
+h1{
+    color: white;
+    margin: auto;
+    margin-left: 250px;
+}
+
+hr{
+    border: solid 2px white;
+}
