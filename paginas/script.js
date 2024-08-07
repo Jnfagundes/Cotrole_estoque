@@ -1,52 +1,23 @@
-// Função para salvar usuário no localStorage
-function saveUser(username, password) {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const userExists = users.some(user => user.username === username);
 
-    if (userExists) {
-        alert('Usuário já existe.');
-        return false;
-    }
+document.querySelector('form[action="tela_acesso.html"]').addEventListener('submit', function(e) {
+    e.preventDefault(); // Previne o envio padrão do formulário
 
-    users.push({ username, password });
-    localStorage.setItem('users', JSON.stringify(users));
-    alert('Usuário cadastrado com sucesso!');
-    return true;
-}
+    // Capturando os dados do formulário de login
+    const usuario = document.getElementById('usuario').value;
+    const senha = document.getElementById('senha').value;
 
-// Função para verificar login
-function loginUser(username, password) {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user => user.username === username && user.password === password);
+    // Buscando os dados no localStorage
+    const usuarioDados = JSON.parse(localStorage.getItem(usuario));
 
-    if (user) {
-        alert('Login bem-sucedido!');
-        window.location.href = '/index.html'; // Redireciona para a página principal
+    if (usuarioDados && usuarioDados.senha === senha) {
+        alert('Login realizado com sucesso!');
+        
+        // Marcar o usuário como logado
+        localStorage.setItem('usuarioLogado', usuario);
+        
+        // Redirecionar para a página restrita
+        window.location.href = 'tela_acesso.html';
     } else {
-        alert('Usuário ou senha incorretos.');
+        alert('Usuário ou senha incorretos!');
     }
-}
-
-// Event listener para cadastro
-if (document.getElementById('registerForm')) {
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        if (saveUser(username, password)) {
-            window.location.href = '/login.html';
-        }
-    });
-}
-
-// Event listener para login
-if (document.getElementById('loginForm')) {
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        loginUser(username, password);
-    });
-}
+});
