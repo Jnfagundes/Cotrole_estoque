@@ -22,14 +22,17 @@ hr{
     flex-direction: row;
     height: 30px;
     margin-top: 1px;
+    padding: 0px;
+    
    
 }
 p{
     color: white;
-    width: 100px;
+    width: 60px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
     margin-left: 700px;
+    
 }
 #identificacao{
     color: wheat;
@@ -43,6 +46,23 @@ section{
     border: solid 1px wheat;
     margin: auto;
     margin-top: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.estoque{
+    width: 500px;
+    height: 500px;
+    border: solid 1px wheat;
+    margin: 5px;
+}
+#acessarEstoque{
+    margin-left: 20px;
+    padding: 0px;
+    
+}
+#consultarEstoque{
+    margin: auto;
 }
 
 #credito{
