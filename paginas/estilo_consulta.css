@@ -43,7 +43,6 @@ p{
 section{
     width: 89%;
     height: 600px;
-    border: solid 1px wheat;
     margin: auto;
     margin-top: 2px;
     display: flex;
@@ -52,8 +51,8 @@ section{
 
 .estoque{
     width: 500px;
-    height: 500px;
-    border: solid 1px wheat;
+    height: 450px;
+    background-color: rgb(34, 32, 32);
     margin: 5px;
 }
 #acessarEstoque{
@@ -63,11 +62,25 @@ section{
 }
 #consultarEstoque{
     margin: auto;
+    margin-bottom: 25px;
+    margin-left: 5px;
+
+}
+#inseri{
+    margin: auto;
+    margin-bottom: 25px;
+    margin: 10px;
+    
+}
+
+#iserindoItens{
+    margin: 10px;
 }
  /* Estilo básico para a lista suspensa */
  .dropdown {
     position: relative;
     display: inline-block;
+    margin-left: 5px;
 }
 
 .dropdown-content {
@@ -111,4 +124,9 @@ h3{
 
 h4{
     margin-top: 1px;
+}
+
+#iserindoItens{
+    display: flex;
+    flex-wrap: wrap;
 }
