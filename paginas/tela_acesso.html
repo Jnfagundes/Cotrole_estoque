@@ -9,7 +9,7 @@
 <body>
     <header>
         <div id="img_logo"> <img src="assets/imagens/logo dos SDP minusculo.png" alt=""> </div>
-        <div><h1>Consultas de entregas/emprestimos</h1></div>
+        <div><h1>Consultas de produtos no estoque</h1></div>
     </header>
     <hr>
     <div id="usuario_logado">
@@ -18,22 +18,14 @@
     </div>
     <section>
         <div id="acessarEstoque" class="estoque">
-            <h1 id="consultarEstoque">Consultar estoque</h1>
-            <div class="dropdown">
-                <label for="text" style="color: wheat; font-size: 1em; margin-top: 25px;">Código: </label>
-                <input type="text" id="input" class="input" placeholder="Digite o código">
-                <div id="myDropdown" class="dropdown-content">
-                    <!-- Opções serão inseridas aqui dinamicamente -->
-                </div>
-            </div> 
-
+            
         </div>
         <div id="inserirEstoque" class="estoque">
             <h1 id="inseri">Inserir itens no estoque</h1>
             <form action="#" id="iserindoItens">
 
-                <label for="item" style="color: wheat; font-size: 1em; ">Nome do Item:</label>
-                <input type="text" id="item" name="item" style="margin-right: 200px; margin-bottom: 10px;" required>
+                <label for="itemDescricao" style="color: wheat; font-size: 1em; ">Nome do Item:</label>
+                <input type="text" id="itemDescricao" name="item" style="margin-right: 200px; margin-bottom: 10px;" required>
                 
                 <label for="codigo" style="color: wheat; font-size: 1em; ">Código:</label>
                 <input type="text" id="codigo" name="descricao" style="margin-right: 250px; margin-bottom: 10px;" required>
@@ -47,8 +39,8 @@
                 <label for="quantidade" style="color: wheat; font-size: 1em; ">Quantidade:</label>
                 <input type="text" id="quantidade" name="descricao" style="margin-right: 200px; margin-bottom: 10px;" required>
 
-                <label for="data" style="color: wheat; font-size: 1em; ">Data da inclusão:</label>
-                <input type="text" id="data" name="descricao" style="margin-right: 200px; margin-bottom: 10px;" required>
+                <label for="dataEntrada" style="color: wheat; font-size: 1em; ">Data da inclusão:</label>
+                <input type="text" id="dataEntrada" name="data" style="margin-right: 200px; margin-bottom: 10px;" required>
 
                 <label for="descricao" style="color: wheat; font-size: 1em;">Descrição:</label>
                 <input type="text" id="descricao" name="descricao" style="width: 380px; height: 100px; margin-bottom: 25px; text-align: left; padding: 0px;  margin: 0px;" required>

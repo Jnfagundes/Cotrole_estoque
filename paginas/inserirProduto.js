@@ -7,18 +7,18 @@ document.getElementById('formCadastro').addEventListener('submit', function(e) {
     const classificar = document.getElementById('classificar');
     const tipo = document.getElementById('tipo');
     const quantidade = document.getElementById('quantidade');
-    const data = document.getElementById('data');
-    const descricao = document.getElementById('descricao').value;
+    const data = document.getElementById('dataEntrada');
+    const descricao = document.getElementById('itemDescricao').value;
 
     // Cria um objeto para o item
     const novoItem = {
         id: Date.now(), // Gera um ID único baseado no timestamp
-        item: item,
+        item: itemDescricao,
         codigo: codigo,
         classificar: classificar,
         tipo: tipo,
         quantidade: quantidade,
-        data: data,
+        data: dataEntrada,
         descricao: descricao
     };
 
@@ -37,3 +37,4 @@ document.getElementById('formCadastro').addEventListener('submit', function(e) {
     // Limpa o formulário
     document.getElementById('formCadastro').reset();
 });
+
