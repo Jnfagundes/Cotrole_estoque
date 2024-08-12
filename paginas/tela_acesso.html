@@ -18,11 +18,19 @@
     </div>
     <section>
         <div id="acessarEstoque" class="estoque">
-            
-        </div>
-        <div id="inserirEstoque" class="estoque">
+                    <h1 id="consulta" style="margin-bottom: 15px;">Consultar itens no estoque</h1>
+                    <form id="consultaItens">
+                        <label for="consultaDescricao" style="margin-bottom: 10px; margin-left: 5px; color: wheat; font-size: 1em;">Nome ou Código do Item:</label>
+                        <input type="text" id="consultaDescricao" name="consulta" style=" margin-left: 5px; margin-right: 200px; margin-bottom: 10px;" required>
+                        <button type="submit" style="color: blue; margin-left: 10px;">Buscar Item</button>
+                    </form>
+                    <div id="resultadoConsulta">
+                        <!-- Resultados da consulta aparecerão aqui -->
+                    </div>
+                </div>
+            <div id="inserirEstoque" class="estoque">
             <h1 id="inseri">Inserir itens no estoque</h1>
-            <form action="#" id="iserindoItens">
+            <form action="tela_acesso.html" id="iserindoItens">
 
                 <label for="itemDescricao" style="color: wheat; font-size: 1em; ">Nome do Item:</label>
                 <input type="text" id="itemDescricao" name="item" style="margin-right: 200px; margin-bottom: 10px;" required>
@@ -42,50 +50,58 @@
                 <label for="dataEntrada" style="color: wheat; font-size: 1em; ">Data da inclusão:</label>
                 <input type="text" id="dataEntrada" name="data" style="margin-right: 200px; margin-bottom: 10px;" required>
 
-                <label for="descricao" style="color: wheat; font-size: 1em;">Descrição:</label>
-                <input type="text" id="descricao" name="descricao" style="width: 380px; height: 100px; margin-bottom: 25px; text-align: left; padding: 0px;  margin: 0px;" required>
+                <label for="descricao" style="color: wheat; font-size: 1em; margin-top: 10px; margin-left: 50px;">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" style="width: 380px; height: 100px; margin-bottom: 25px; text-align: left; padding: 0px;  margin: 0px; " required>
                 
                 
-                <button type="submit" style="color: green; margin-left: 300px; ">Cadastrar Item</button>
+                <button type="submit" style="color: green; margin-left: 300px; margin-top: 40px;">Cadastrar Item</button>
             </form>
         </div>
-    </section>
-    
-    
-
-    <script src="script.js"></script>
-    
+    </section> 
+       
     <script>
-        // Verificar se o usuário está logado
-        const usuarioLogado = localStorage.getItem('usuarioLogado');
+        document.addEventListener('DOMContentLoaded', function() {
+    // Verificar se o usuário está logado
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
 
-        if (!usuarioLogado) {
-            // Se não estiver logado, redireciona para a página de login
-            window.location.href = 'index.html';
-        } else {
-            // Caso o usuário esteja logado, você pode exibir o conteúdo normalmente
-            console.log('Usuário logado:', usuarioLogado);
-        }
+    if (!usuarioLogado) {
+        window.location.href = 'index.html';
+    } else {
+        document.getElementById('identificacao').textContent = usuarioLogado;
+    }
+
+    // Adicionar evento de logout
+    document.getElementById('logout').addEventListener('click', function() {
+        localStorage.removeItem('usuarioLogado');
+        window.location.href = 'index.html';
+    });
+
+    // Outros eventos, como o de consulta e inserção de itens, devem ser colocados aqui
+});
+
     </script>
     <button id="logout">Sair</button>
 
     <script>
-        document.getElementById('logout').addEventListener('click', function() {
-            // Remover o indicador de login
-            localStorage.removeItem('usuarioLogado');
-            
-            // Redirecionar para a página de login
-            window.location.href = 'index.html';
+        document.addEventListener('DOMContentLoaded', function() {
+            const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+            if (!usuarioLogado) {
+                window.location.href = 'index.html';
+            } else {
+                document.getElementById('identificacao').textContent = usuarioLogado;
+            }
+
+            document.getElementById('logout').addEventListener('click', function() {
+                localStorage.removeItem('usuarioLogado');
+                window.location.href = 'index.html';
+            });
         });
-
-        if (usuarioLogado) {
-    document.getElementById('identificacao').textContent = usuarioLogado;
-}
-
-      
     </script>
 
+
     <script src="inserirProduto.js"></script>
+    <script src="script.js"></script>
     <footer>
         <div id="credito" >
             <h3>Desenvolvido por: José Nilton</h3>
