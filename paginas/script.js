@@ -21,3 +21,39 @@ document.querySelector('form[action="tela_acesso.html"]').addEventListener('subm
         alert('Usuário ou senha incorretos!');
     }
 });
+
+//Verificando usuário
+document.addEventListener('DOMContentLoaded', function() {
+    // Verificar se o usuário está logado
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+    if (!usuarioLogado) {
+        window.location.href = 'index.html';
+    } else {
+        document.getElementById('identificacao').textContent = usuarioLogado;
+    }
+
+    // Adicionar evento de logout
+    document.getElementById('logout').addEventListener('click', function() {
+        localStorage.removeItem('usuarioLogado');
+        window.location.href = 'index.html';
+    });
+
+    // Outros eventos, como o de consulta e inserção de itens, devem ser colocados aqui
+});
+
+//Verificação de usuário
+document.addEventListener('DOMContentLoaded', function() {
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+    if (!usuarioLogado) {
+        window.location.href = 'index.html';
+    } else {
+        document.getElementById('identificacao').textContent = usuarioLogado;
+    }
+
+    document.getElementById('logout').addEventListener('click', function() {
+        localStorage.removeItem('usuarioLogado');
+        window.location.href = 'index.html';
+    });
+});

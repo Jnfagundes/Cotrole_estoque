@@ -41,7 +41,7 @@ p{
 }
 
 section{
-    width: 89%;
+    width: 95%;
     height: 600px;
     margin: auto;
     margin-top: 2px;
@@ -50,13 +50,13 @@ section{
 }
 
 .estoque{
-    width: 500px;
-    height: 450px;
+    width: 600px;
+    height: 650px;
     background-color: rgb(34, 32, 32);
     margin: 5px;
 }
 #acessarEstoque{
-    margin-left: 20px;
+    margin-left: 0px;
     padding: 0px;
 
 }
@@ -74,7 +74,11 @@ section{
 }
 
 #iserindoItens{
-    margin: 10px;
+    margin: 5px;
+}
+
+#resultadoConsulta{
+    display: none;
 }
  /* Estilo básico para a lista suspensa */
  .dropdown {
@@ -87,14 +91,14 @@ section{
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: 60px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 6px 8px;
     text-decoration: none;
     display: block;
 }
@@ -108,7 +112,7 @@ section{
 .show {display: block;}
 
 #credito{
-    margin-left: 800px;
+    margin-left: 100px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
     display: flex;
@@ -123,10 +127,38 @@ h3{
 }
 
 h4{
+    font-size: 1em;
     margin-top: 1px;
 }
 
 #iserindoItens{
     display: flex;
     flex-wrap: wrap;
+}
+
+/* Estilo para a tabela de resultados */
+.tabela-produtos {
+    width: 90%;
+    border-collapse: collapse; /* Remove espaços entre células */
+    margin-top: 10px;
+    color: #fff; /* Cor do texto */
+    background-color: #333; /* Cor de fundo da tabela */
+}
+
+.tabela-produtos th, .tabela-produtos td {
+    padding: 5px; /* Espaço interno das células */
+    border: 1px solid #444; /* Borda das células */
+    text-align: left; /* Alinhamento do texto */
+}
+
+.tabela-produtos th {
+    background-color: #555; /* Cor de fundo dos cabeçalhos */
+}
+
+.tabela-produtos tr:nth-child(even) {
+    background-color: #444; /* Cor de fundo para linhas pares */
+}
+
+.tabela-produtos tr:hover {
+    background-color: #555; /* Cor de fundo ao passar o mouse */
 }

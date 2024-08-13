@@ -18,96 +18,57 @@
     </div>
     <section>
         <div id="acessarEstoque" class="estoque">
-                    <h1 id="consulta" style="margin-bottom: 15px;">Consultar itens no estoque</h1>
-                    <form id="consultaItens">
-                        <label for="consultaDescricao" style="margin-bottom: 10px; margin-left: 5px; color: wheat; font-size: 1em;">Nome ou Código do Item:</label>
-                        <input type="text" id="consultaDescricao" name="consulta" style=" margin-left: 5px; margin-right: 200px; margin-bottom: 10px;" required>
-                        <button type="submit" style="color: blue; margin-left: 10px;">Buscar Item</button>
-                    </form>
-                    <div id="resultadoConsulta">
-                        <!-- Resultados da consulta aparecerão aqui -->
-                    </div>
-                </div>
-            <div id="inserirEstoque" class="estoque">
+            <h1 id="consulta" style="margin-bottom: 15px;">Consultar itens no estoque</h1>
+            <form id="consultaItens">
+                <label for="consultaDescricao" style="margin-bottom: 10px; margin-left: 5px; color: wheat; font-size: 1em;">Nome ou Código do Item:</label>
+                <input type="text" id="consultaDescricao" name="consulta" style=" margin-left: 5px; margin-right: 200px; margin-bottom: 10px;" required>
+                <button type="submit" style="color: blue; margin-left: 10px;">Buscar Item</button>
+            </form>
+            <div id="resultadoConsulta">
+                <!-- Resultados da consulta aparecerão aqui -->
+            </div>
+        </div>
+
+        <div id="inserirEstoque" class="estoque">
             <h1 id="inseri">Inserir itens no estoque</h1>
             <form action="tela_acesso.html" id="iserindoItens">
 
-                <label for="itemDescricao" style="color: wheat; font-size: 1em; ">Nome do Item:</label>
-                <input type="text" id="itemDescricao" name="item" style="margin-right: 200px; margin-bottom: 10px;" required>
+                <label for="itemDescricao" style="color: wheat; font-size: 1em;">Nome do Item:</label>
+                <input type="text" id="itemDescricao" name="item" style="margin-right: 250px; margin-bottom: 10px;" required>
                 
-                <label for="codigo" style="color: wheat; font-size: 1em; ">Código:</label>
-                <input type="text" id="codigo" name="descricao" style="margin-right: 250px; margin-bottom: 10px;" required>
+                <label for="codigo" style="color: wheat; font-size: 1em;">Código:</label>
+                <input type="text" id="codigo" name="codigoProduto" style="margin-right: 250px; margin-bottom: 10px;" required>
 
-                <label for="classificar" style="color: wheat; font-size: 1em; ">Classificação:</label>
-                <input type="text" id="classificar" name="descricao" style="margin-right: 200px; margin-bottom: 10px;" required>
+                <label for="classificarItem" style="color: wheat; font-size: 1em;">Classificação:</label>
+                <input type="text" id="classificarItem" name="classificarProduto" style="margin-right: 250px; margin-bottom: 10px;" required>
 
-                <label for="tipo" style="color: wheat; font-size: 1em; ">Tipo:</label>
-                <input type="text" id="tipo" name="descricao" style="margin-right: 250px; margin-bottom: 10px;" required>
+                <label for="tipoItem" style="color: wheat; font-size: 1em;">Tipo:</label>
+                <input type="text" id="tipoItem" name="tipoProduto" style="margin-right: 250px; margin-bottom: 10px;" required>
 
-                <label for="quantidade" style="color: wheat; font-size: 1em; ">Quantidade:</label>
-                <input type="text" id="quantidade" name="descricao" style="margin-right: 200px; margin-bottom: 10px;" required>
+                <label for="quantidadeItem" style="color: wheat; font-size: 1em;">Quantidade:</label>
+                <input type="text" id="quantidadeItem" name="quantidadeProduto" style="margin-right: 200px; margin-bottom: 10px;" required>
 
-                <label for="dataEntrada" style="color: wheat; font-size: 1em; ">Data da inclusão:</label>
-                <input type="text" id="dataEntrada" name="data" style="margin-right: 200px; margin-bottom: 10px;" required>
+                <label for="dataEntradaItem" style="color: wheat; font-size: 1em;">Data da inclusão:</label>
+                <input type="text" id="dataEntradaItem" name="dataEntradaProduto" style="margin-right: 200px; margin-bottom: 10px;" required>
 
-                <label for="descricao" style="color: wheat; font-size: 1em; margin-top: 10px; margin-left: 50px;">Descrição:</label>
-                <input type="text" id="descricao" name="descricao" style="width: 380px; height: 100px; margin-bottom: 25px; text-align: left; padding: 0px;  margin: 0px; " required>
-                
+                <label for="descricaoItem" style="color: wheat; font-size: 1em; margin-top: 10px; margin-left: 150px;">Descrição:</label>
+                <input type="text" id="descricaoItem" name="descricaoProduto" style="width: 380px; height: 100px; margin-bottom: 25px; text-align: left; padding: 0px;  margin: 0px;" required>
                 
                 <button type="submit" style="color: green; margin-left: 300px; margin-top: 40px;">Cadastrar Item</button>
             </form>
         </div>
-    </section> 
-       
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    // Verificar se o usuário está logado
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-
-    if (!usuarioLogado) {
-        window.location.href = 'index.html';
-    } else {
-        document.getElementById('identificacao').textContent = usuarioLogado;
-    }
-
-    // Adicionar evento de logout
-    document.getElementById('logout').addEventListener('click', function() {
-        localStorage.removeItem('usuarioLogado');
-        window.location.href = 'index.html';
-    });
-
-    // Outros eventos, como o de consulta e inserção de itens, devem ser colocados aqui
-});
-
-    </script>
+    </section>    
+    
     <button id="logout">Sair</button>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const usuarioLogado = localStorage.getItem('usuarioLogado');
-
-            if (!usuarioLogado) {
-                window.location.href = 'index.html';
-            } else {
-                document.getElementById('identificacao').textContent = usuarioLogado;
-            }
-
-            document.getElementById('logout').addEventListener('click', function() {
-                localStorage.removeItem('usuarioLogado');
-                window.location.href = 'index.html';
-            });
-        });
-    </script>
-
-
-    <script src="inserirProduto.js"></script>
-    <script src="script.js"></script>
     <footer>
-        <div id="credito" >
+        <div id="credito">
             <h3>Desenvolvido por: José Nilton</h3>
             <h4>Unidade Dom João Resende Costa</h4>
         </div>
     </footer>
     
+    <script src="inserirProduto.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
