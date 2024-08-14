@@ -39,17 +39,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Função para exibir os resultados da consulta
+document.addEventListener('DOMContentLoaded', function() {
+    // Recuperar produtos do localStorage
+    const produtosEstoque = JSON.parse(localStorage.getItem('produtosEstoque')) || [];
+
+    // Exibir resultados iniciais (se houver)
+    exibirResultados(produtosEstoque);
+    
+    // Adicionar evento de submit ao formulário de consulta
+    document.getElementById('consultaItens').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenir o envio padrão do formulário
+
+        // Captura o valor da consulta
+        const query = document.getElementById('consultaDescricao').value.toLowerCase().trim();
+        
+        // Filtrar produtos que correspondem à consulta
+        const produtosFiltrados = produtosEstoque.filter(produto => 
+            produto.nome.toLowerCase().includes(query) || 
+            produto.codigo.toLowerCase().includes(query)
+        );
+
+        // Exibir os resultados filtrados
+        exibirResultados(produtosFiltrados);
+    });
+});
+
 function exibirResultados(resultados) {
+    console.log('Exibindo resultados:', resultados);
+
     const resultadoDiv = document.getElementById('resultadoConsulta');
     resultadoDiv.innerHTML = ''; // Limpar resultados anteriores
 
     if (!Array.isArray(resultados) || resultados.length === 0) {
         resultadoDiv.innerHTML = '<p>Nenhum produto encontrado.</p>';
+        resultadoDiv.style.display = 'none'; // Oculta o div se não houver dados
         return;
     }
 
     const tabela = document.createElement('table');
-    tabela.classList.add('tabela-produtos'); // Utilize uma classe CSS para estilização
+    tabela.classList.add('tabela-produtos');
 
     tabela.innerHTML = `
         <thead>
@@ -70,8 +98,6 @@ function exibirResultados(resultados) {
     const tbody = tabela.querySelector('tbody');
     resultados.forEach(produto => {
         const row = document.createElement('tr');
-
-        // Adicione as células manualmente para evitar problemas de XSS
         const nomeTd = document.createElement('td');
         nomeTd.textContent = produto.nome || 'N/A';
         row.appendChild(nomeTd);
@@ -106,4 +132,3 @@ function exibirResultados(resultados) {
     resultadoDiv.appendChild(tabela);
     resultadoDiv.style.display = 'block'; // Exibe o div quando houver dados
 }
-
