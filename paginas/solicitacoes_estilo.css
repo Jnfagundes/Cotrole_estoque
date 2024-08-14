@@ -10,9 +10,32 @@ header{
 h1{
     color: white;
     margin: auto;
-    margin-left: 250px;
+    
 }
 
 hr{
     border: solid 2px white;
+}
+
+#cadastroDeSolicitacoes{
+    background-color: rgb(72, 87, 72);
+    width: 99.5%;
+    height: 150px;
+    border-radius: 10px;
+}
+
+#tituloSolicitacao{
+    margin: 3px;
+    width: 400px;
+    margin-left: 30px;
+}
+
+#formulario{
+    margin: 10px;
+}
+
+.labelFormulario{
+    margin-top: 10px;
+    margin-left: 20px;
+    color: wheat;
 }
