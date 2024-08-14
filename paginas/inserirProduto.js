@@ -1,6 +1,6 @@
 
 
-document.getElementById('iserindoItens').addEventListener('submit', function(event) {
+document.getElementById('iserindoItens').addEventListener(`submit`, function(event) {
     event.preventDefault(); // Prevenir o envio padrão do formulário
 
     // Capturar os dados do formulário

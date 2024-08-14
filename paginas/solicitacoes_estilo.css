@@ -44,3 +44,17 @@ hr{
     margin-top: 50px;
     margin-left: 500px;
 }
+
+#relatorio{
+    width: 99.5%;
+    height: 500px;
+    background-color: rgb(72, 87, 72);
+    margin-top: 10px;
+    border-radius: 10px;
+
+}
+
+#h{
+    margin-top: 10px;
+    margin-left: 450px;
+}
