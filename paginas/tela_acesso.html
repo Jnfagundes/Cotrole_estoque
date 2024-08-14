@@ -19,14 +19,19 @@
     <section>
         <div id="acessarEstoque" class="estoque">
             <h1 id="consulta" style="margin-bottom: 15px;">Consultar itens no estoque</h1>
+            <div id="solicitacao" style="margin-top: 20px; margin-left: 40px; margin-bottom: 40px;">
+                <a href="solicitacoes.html" style="background-color: green; margin: 10px; border-radius: 5px; padding: 10px; text-decoration: none; font-family: Verdana, Geneva, Tahoma, sans-serif; color: wheat; font-weight: bold;">Solicitações</a>
+            </div>
             <form id="consultaItens">
                 <label for="consultaDescricao" style="margin-bottom: 10px; margin-left: 5px; color: wheat; font-size: 1em;">Nome ou Código do Item:</label>
                 <input type="text" id="consultaDescricao" name="consulta" style=" margin-left: 5px; margin-right: 200px; margin-bottom: 10px;" required>
                 <button type="submit" style="color: blue; margin-left: 10px;">Buscar Item</button>
                 <button type="button" id="limparPesquisa" style="color: red; margin-left: 10px;">Limpar Pesquisa</button>
             </form>
+            
             <div id="resultadoConsulta">
                 <!-- Resultados da consulta aparecerão aqui -->
+
             </div>
         </div>
 
@@ -56,6 +61,8 @@
                 <input type="text" id="descricaoItem" name="descricaoProduto" style="width: 380px; height: 100px; margin-bottom: 25px; text-align: left; padding: 0px;  margin: 0px;" required>
                 
                 <button type="submit" style="color: green; margin-left: 300px; margin-top: 40px;">Cadastrar Item</button>
+
+
             </form>
         </div>
     </section>    
