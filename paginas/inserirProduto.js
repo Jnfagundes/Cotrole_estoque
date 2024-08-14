@@ -40,38 +40,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Função para exibir os resultados da consulta
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicialmente, não exibir a tabela
     const resultadoDiv = document.getElementById('resultadoConsulta');
     resultadoDiv.style.display = 'none';
 
-    // Recuperar produtos do localStorage
     const produtosEstoque = JSON.parse(localStorage.getItem('produtosEstoque')) || [];
 
-    // Adicionar evento de submit ao formulário de consulta
     document.getElementById('consultaItens').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevenir o envio padrão do formulário
+        event.preventDefault();
 
-        // Captura o valor da consulta
         const query = document.getElementById('consultaDescricao').value.toLowerCase().trim();
-        
-        // Filtrar produtos que correspondem à consulta
+
         const produtosFiltrados = produtosEstoque.filter(produto => 
             produto.nome.toLowerCase().includes(query) || 
             produto.codigo.toLowerCase().includes(query)
         );
 
-        // Exibir os resultados filtrados
         exibirResultados(produtosFiltrados);
+    });
+
+    // Botão "Limpar Pesquisa"
+    document.getElementById('limparPesquisa').addEventListener('click', function() {
+        // Limpar o campo de entrada
+        document.getElementById('consultaDescricao').value = '';
+
+        // Esconder a tabela de resultados
+        resultadoDiv.innerHTML = '';
+        resultadoDiv.style.display = 'none';
     });
 });
 
 function exibirResultados(resultados) {
     const resultadoDiv = document.getElementById('resultadoConsulta');
-    resultadoDiv.innerHTML = ''; // Limpar resultados anteriores
+    resultadoDiv.innerHTML = '';
 
     if (!Array.isArray(resultados) || resultados.length === 0) {
         resultadoDiv.innerHTML = '<p>Nenhum produto encontrado.</p>';
-        resultadoDiv.style.display = 'block'; // Mostrar mensagem de "Nenhum produto encontrado"
+        resultadoDiv.style.display = 'block';
         return;
     }
 
@@ -130,5 +134,5 @@ function exibirResultados(resultados) {
     });
 
     resultadoDiv.appendChild(tabela);
-    resultadoDiv.style.display = 'block'; // Exibe o div quando houver resultados
+    resultadoDiv.style.display = 'block';
 }

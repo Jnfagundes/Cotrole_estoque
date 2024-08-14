@@ -17,13 +17,15 @@ hr{
     border: solid 2px white;
 }
 
-#usuario_logado{
+#usuarioLogado{
     display: flex;
     flex-direction: row;
     height: 30px;
     margin-top: 1px;
     padding: 0px;
     margin-bottom: 50px;
+   
+    
     
    
 }
@@ -32,7 +34,8 @@ hr{
     width: 60px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
-    margin-left: 600px;
+    margin-left: 100px;
+   
     
 }
 #identificacao{
@@ -41,6 +44,7 @@ hr{
     height: 30px;
     margin-left: 1px;
     text-decoration: underline;
+    
 }
 
 section{
@@ -57,6 +61,7 @@ section{
     height: 650px;
     background-color: rgb(34, 32, 32);
     margin: 5px;
+    margin-bottom: 25px;
 }
 #acessarEstoque{
     margin-left: 0px;
@@ -70,18 +75,19 @@ section{
 
 }
 #inseri{
-    margin: auto;
-    margin-bottom: 25px;
+   
+    margin-bottom: 55px;
     margin: 10px;
     
 }
 
 #logout{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 #iserindoItens{
     margin: 5px;
+    display: block;
 }
 
 #resultadoConsulta{
