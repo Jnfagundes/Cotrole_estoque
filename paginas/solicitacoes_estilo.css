@@ -41,8 +41,8 @@ hr{
 }
 
 #btnEnvio{
-    margin-top: 50px;
-    margin-left: 500px;
+    margin-top: 10px;
+    margin-left: 400px;
 }
 
 #relatorio{
@@ -57,4 +57,39 @@ hr{
 #h{
     margin-top: 10px;
     margin-left: 450px;
+}
+
+/* Estilos para a tabela de relatório */
+#tabelaRelatorio table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+#tabelaRelatorio th, #tabelaRelatorio td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#tabelaRelatorio th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+}
+
+#tabelaRelatorio tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tabelaRelatorio tr:hover {
+    background-color: #ddd;
+}
+
+/* Estilos para os detalhes da solicitação */
+#detalhesSolicitacao p {
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 1.1em;
 }

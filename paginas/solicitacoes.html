@@ -24,20 +24,32 @@
             <input type="text" id="codProdutSolicitado">
 
             <label for="dataSolicitacao" class="labelFormulario" >Data da solicitação: </label>
-            <input type="text" id="dataSolicitacao">
+            <input type="text" id="dataSolicitacao" style="margin-right: 80px;">
 
-            <label for="numSolicitacao" class="labelFormulario">Número: </label>
-            <input type="text" id="numSolicitacao" style="width: 50px;">
+            <label for="quantidadeSolicitacao" class="labelFormulario" style=" margin-left: 20px;" >Quantidade: </label>
+            <input type="text" id="quantidadeSolicitacao">
+
+
+            <label for="numSolicitacao" class="labelFormulario" style="margin-top: 10px;">Número: </label>
+            <input type="text" id="numSolicitacao" style="width: 50px; margin-top: 10px;">
         </form>
         <div id="btnEnvio">
+            <button>Pesquisar por solicitante</button>
             <button>Gerar solicitação</button>
         </div>
 
     </section>
     <section id="relatorio">
-        <div id="h" ><h1>Relatório de solicitação</h1></div>
+        <div id="h">
+            <h1>Relatório de solicitação</h1>
+        </div>
+        <div id="detalhesSolicitacao">
+            <!-- Nome do solicitante e data serão inseridos aqui -->
+        </div>
+        <div id="tabelaRelatorio">
+            <!-- A tabela será criada aqui dinamicamente -->
+        </div>
     </section>
-
     <script src="solicitacoes.js"></script>
 </body>
 </html>
