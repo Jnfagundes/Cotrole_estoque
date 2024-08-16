@@ -74,7 +74,7 @@ document.getElementById('btnEnvio').querySelector('button:nth-child(2)').addEven
 
     // Limpar o formulário após gerar a solicitação
     if (document.getElementById('formulario')) {
-        document.getElementById('formulario').reset();
+        document.getElementById('formulario').reset( );
         
     }
     
