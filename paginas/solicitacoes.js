@@ -75,7 +75,26 @@ document.getElementById('btnEnvio').querySelector('button:nth-child(2)').addEven
     // Limpar o formulário após gerar a solicitação
     if (document.getElementById('formulario')) {
         document.getElementById('formulario').reset();
+        
     }
     
+    
     alert('Solicitação criada com sucesso!');
+    
 });
+
+// Função para obter a data no formato desejado
+function obterDataAtual() {
+    const agora = new Date();
+    const ano = agora.getFullYear();
+    const mes = String(agora.getMonth() + 1).padStart(2, '0'); // Meses são indexados a partir de 0
+    const dia = String(agora.getDate()).padStart(2, '0');
+    return `${dia}-${mes}-${ano}`;
+}
+
+// Preenche o campo com a data atual
+document.addEventListener('DOMContentLoaded', () => {
+    const campoDataSolicitacao = document.getElementById('dataSolicitacao');
+    campoDataSolicitacao.value = obterDataAtual();
+});
+

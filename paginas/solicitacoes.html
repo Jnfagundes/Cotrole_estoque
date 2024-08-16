@@ -22,19 +22,18 @@
 
             <label for="codProdutSolicitado" class="labelFormulario">Código do produto solicitado: </label>
             <input type="text" id="codProdutSolicitado">
+            
+            <label for="quantidadeSolicitacao" class="labelFormulario" style=" margin-left: 20px;" >Quantidade: </label>
+            <input type="text" id="quantidadeSolicitacao" style="margin-right: 200px;" >
 
             <label for="dataSolicitacao" class="labelFormulario" >Data da solicitação: </label>
-            <input type="text" id="dataSolicitacao" style="margin-right: 80px;">
-
-            <label for="quantidadeSolicitacao" class="labelFormulario" style=" margin-left: 20px;" >Quantidade: </label>
-            <input type="text" id="quantidadeSolicitacao" style="margin-top: 10px;">
-
+            <input type="text" id="dataSolicitacao" style="margin-top: 10px;">
 
             
         </form>
         <div id="btnEnvio">
             <button style="display: none;">...</button>
-            <button>Gerar solicitação</button>
+            <button>Adicionar solicitação</button>
         </div>
 
     </section>
@@ -49,6 +48,8 @@
             <!-- A tabela será criada aqui dinamicamente -->
         </div>
     </section>
+
+    <button id="paraExcel" style="margin-top: 20px; margin-left: 1000px;">Gerar arquivo para excel</button>
     <script src="solicitacoes.js"></script>
 </body>
 </html>
