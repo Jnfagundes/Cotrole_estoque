@@ -46,17 +46,19 @@ hr{
 }
 
 #relatorio{
-    width: 99.5%;
+    width: 97.5%;
     height: 500px;
     background-color: rgb(72, 87, 72);
     margin-top: 10px;
     border-radius: 10px;
+    padding: 10px;
 
 }
 
 #h{
     margin-top: 10px;
     margin-left: 450px;
+    margin-bottom: 20px;
 }
 
 /* Estilos para a tabela de relatório */
