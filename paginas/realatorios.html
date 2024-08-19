@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerar Excel com JavaScript</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <button id="gerarExcel">Gerar Excel</button>
+
+    <script>
+        document.getElementById('gerarExcel').addEventListener('click', function() {
+            // Exemplo de dados que serão inseridos no Excel
+            const dados = [
+                ["Nome", "Idade", "Profissão"],
+                ["João", 28, "Engenheiro"],
+                ["Maria", 32, "Médica"],
+                ["Pedro", 24, "Designer"]
+            ];
+
+            // Criar um workbook (planilha)
+            const workbook = XLSX.utils.book_new();
+
+            // Criar uma planilha
+            const worksheet = XLSX.utils.aoa_to_sheet(dados);
+
+            // Adicionar a planilha ao workbook
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Dados");
+
+            // Gerar o arquivo Excel
+            XLSX.writeFile(workbook, "dados.xlsx");
+        });
+    </script>
+</body>
+</html>
