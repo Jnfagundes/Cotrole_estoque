@@ -1,13 +1,16 @@
 document.getElementById('btnEnvio').querySelector('button:nth-child(2)').addEventListener('click', function() {
+    // Preencher automaticamente o campo de data com a data atual
+    const campoDataSolicitacao = document.getElementById('dataSolicitacao');
+    campoDataSolicitacao.value = obterDataAtual();
+
     // Obter os valores dos campos
     const solicitanteElement = document.getElementById('Solicitante');
     const codigoProdutoElement = document.getElementById('codProdutSolicitado');
-    const dataSolicitacaoElement = document.getElementById('dataSolicitacao');
     const quantidadeSolicitadaElement = document.getElementById('quantidadeSolicitacao');
     
     const solicitante = solicitanteElement ? solicitanteElement.value.trim() : '';
     const codigoProduto = codigoProdutoElement ? codigoProdutoElement.value.trim() : '';
-    const dataSolicitacao = dataSolicitacaoElement ? dataSolicitacaoElement.value.trim() : '';
+    const dataSolicitacao = campoDataSolicitacao ? campoDataSolicitacao.value.trim() : '';
     const quantidadeSolicitada = quantidadeSolicitadaElement ? quantidadeSolicitadaElement.value.trim() : '';
 
     // Verificar se todos os campos foram preenchidos
@@ -34,20 +37,19 @@ document.getElementById('btnEnvio').querySelector('button:nth-child(2)').addEven
     if (!tabela) {
         // Se a tabela não existir, criar uma nova
         tabela = document.createElement('table');
-        tabela.innerHTML = `
-            <thead>
-                <tr>
-                    <th>Nome do Produto</th>
-                    <th>Descrição</th>
-                    <th>Código do Produto</th>
-                    <th>Quantidade Solicitada</th>
-                    <th>Data da Solicitação</th>
-                    <th>Solicitante</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
+        const thead = document.createElement('thead');
+        thead.innerHTML = `
+            <tr>
+                <th>Código do Produto</th>
+                <th>Nome do Produto</th>
+                <th>Descrição</th>
+                <th>Quantidade Solicitada</th>
+                <th>Data e horário da Solicitação</th>
+                <th>Solicitante</th>
+            </tr>
         `;
+        tabela.appendChild(thead);
+        tabela.appendChild(document.createElement('tbody'));
         tabelaRelatorioDiv.appendChild(tabela);
     }
 
@@ -56,9 +58,9 @@ document.getElementById('btnEnvio').querySelector('button:nth-child(2)').addEven
     const novaLinha = document.createElement('tr');
 
     const campos = [
+        produto.codigo || 'N/A',
         produto.nome || 'N/A',
         produto.descricao || 'N/A',
-        produto.codigo || 'N/A',
         quantidadeSolicitada || 'N/A',
         dataSolicitacao || 'N/A',
         solicitante || 'N/A'
@@ -73,28 +75,53 @@ document.getElementById('btnEnvio').querySelector('button:nth-child(2)').addEven
     tbody.appendChild(novaLinha);
 
     // Limpar o formulário após gerar a solicitação
-    if (document.getElementById('formulario')) {
-        document.getElementById('formulario').reset( );
-        
+    const formulario = document.getElementById('formulario');
+    if (formulario) {
+        formulario.reset();
     }
     
-    
     alert('Solicitação criada com sucesso!');
-    
 });
 
 // Função para obter a data no formato desejado
 function obterDataAtual() {
     const agora = new Date();
     const ano = agora.getFullYear();
-    const mes = String(agora.getMonth() + 1).padStart(2, '0'); // Meses são indexados a partir de 0
+    const mes = String(agora.getMonth() + 1).padStart(2, '0');
     const dia = String(agora.getDate()).padStart(2, '0');
-    return `${dia}-${mes}-${ano}`;
+    const horas = String(agora.getHours()).padStart(2, '0');
+    const minutos = String(agora.getMinutes()).padStart(2, '0');
+    const segundos = String(agora.getSeconds()).padStart(2, '0');
+    return `${dia}-${mes}-${ano} ${horas}:${minutos}:${segundos}`;
+   
 }
 
-// Preenche o campo com a data atual
+// Preenche o campo com a data atual ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    const campoDataSolicitacao = document.getElementById('dataSolicitacao');
+    const campoDataSolicitacao = document.getElementById('dataHoraSistema');
     campoDataSolicitacao.value = obterDataAtual();
+    
 });
+// Função para obter a data e hora no formato desejado
+function obterDataHoraAtual() {
+    const agora = new Date();
+    const ano = agora.getFullYear();
+    const mes = String(agora.getMonth() + 1).padStart(2, '0');
+    const dia = String(agora.getDate()).padStart(2, '0');
+    const horas = String(agora.getHours()).padStart(2, '0');
+    const minutos = String(agora.getMinutes()).padStart(2, '0');
+    const segundos = String(agora.getSeconds()).padStart(2, '0');
+    return `${dia}-${mes}-${ano} ${horas}:${minutos}:${segundos}`;
+}
 
+// Função para atualizar a data e hora a cada segundo
+function atualizarDataHora() {
+    const dataHoraAtualDiv = document.getElementById('dataHoraSistema');
+    dataHoraAtualDiv.textContent = `Data e Hora: ${obterDataHoraAtual()}`;
+}
+
+// Atualiza a data e hora a cada segundo
+setInterval(atualizarDataHora, 1000);
+
+// Preenche a div com a data e hora atual quando a página carrega
+document.addEventListener('DOMContentLoaded', atualizarDataHora);

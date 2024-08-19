@@ -13,6 +13,12 @@ h1{
     
 }
 
+#dataHoraSistema{
+    margin-left: 200px;
+    margin-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: green;
+}
 hr{
     border: solid 2px white;
 }
