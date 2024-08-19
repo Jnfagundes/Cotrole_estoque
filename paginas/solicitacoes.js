@@ -1,7 +1,7 @@
 document.getElementById('btnEnvio').querySelector('button:nth-child(2)').addEventListener('click', function() {
     // Preencher automaticamente o campo de data com a data atual
     const campoDataSolicitacao = document.getElementById('dataSolicitacao');
-    campoDataSolicitacao.value = obterDataAtual();
+    campoDataSolicitacao.value = obterDataHoraAtual();
 
     // Obter os valores dos campos
     const solicitanteElement = document.getElementById('Solicitante');
@@ -83,25 +83,6 @@ document.getElementById('btnEnvio').querySelector('button:nth-child(2)').addEven
     alert('Solicitação criada com sucesso!');
 });
 
-// Função para obter a data no formato desejado
-function obterDataAtual() {
-    const agora = new Date();
-    const ano = agora.getFullYear();
-    const mes = String(agora.getMonth() + 1).padStart(2, '0');
-    const dia = String(agora.getDate()).padStart(2, '0');
-    const horas = String(agora.getHours()).padStart(2, '0');
-    const minutos = String(agora.getMinutes()).padStart(2, '0');
-    const segundos = String(agora.getSeconds()).padStart(2, '0');
-    return `${dia}-${mes}-${ano} ${horas}:${minutos}:${segundos}`;
-   
-}
-
-// Preenche o campo com a data atual ao carregar a página
-document.addEventListener('DOMContentLoaded', () => {
-    const campoDataSolicitacao = document.getElementById('dataHoraSistema');
-    campoDataSolicitacao.value = obterDataAtual();
-    
-});
 // Função para obter a data e hora no formato desejado
 function obterDataHoraAtual() {
     const agora = new Date();
@@ -125,3 +106,31 @@ setInterval(atualizarDataHora, 1000);
 
 // Preenche a div com a data e hora atual quando a página carrega
 document.addEventListener('DOMContentLoaded', atualizarDataHora);
+
+document.getElementById('paraExcel').addEventListener('click', function() {
+    const dados = [];
+
+    // Selecionar o cabeçalho da tabela
+    const cabecalhos = document.querySelectorAll('#tabelaRelatorio table thead tr th');
+    const linhaCabecalho = Array.from(cabecalhos).map(th => th.textContent);
+    dados.push(linhaCabecalho);
+
+    // Selecionar todas as linhas da tabela
+    const linhas = document.querySelectorAll('#tabelaRelatorio table tbody tr');
+    linhas.forEach(linha => {
+        const valores = Array.from(linha.children).map(td => td.textContent);
+        dados.push(valores);
+    });
+
+    // Criar um workbook (planilha)
+    const workbook = XLSX.utils.book_new();
+
+    // Criar uma planilha
+    const worksheet = XLSX.utils.aoa_to_sheet(dados);
+
+    // Adicionar a planilha ao workbook
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Dados");
+
+    // Gerar o arquivo Excel
+    XLSX.writeFile(workbook, "dados.xlsx");
+});
